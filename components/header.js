@@ -1,30 +1,8 @@
 import React from 'react'
 import Router from 'next/router'
 import Link from 'next/link'
-import {
-  Container,
-  Row,
-  Col,
-  Nav,
-  NavItem,
-  Button,
-  Form,
-  NavLink,
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  ListGroup,
-  ListGroupItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from 'reactstrap'
+import { Form, Modal, ModalHeader, ModalBody } from 'reactstrap'
+import { Navbar, NavItem, Dropdown, Button } from 'react-materialize'
 import Signin from './signin'
 import { NextAuth } from 'next-auth/client'
 import Cookies from 'universal-cookie'
@@ -75,52 +53,27 @@ export default class HeaderNav extends React.Component {
 
   render() {
     return (
-      <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Tickles and Tunes</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav navbar>
-              <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Music
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <Link href="/music/playlist">Playlists</Link>
-                  </DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Vidoes
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <Link href="/videos/">Playlists</Link>
-                  </DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Reset</DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-              <NavItem>
-                <NavLink href="/about">About</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/contact/">Contact</NavLink>
-              </NavItem>
-              <UserMenu session={this.props.session} toggleModal={this.toggleModal} signinBtn={this.props.signinBtn} />
-            </Nav>
-          </Collapse>
+      <header>
+        <Navbar className="my-navbar" expand="md" brand="Tickles and Tunes" logo="left" right>
+          <NavItem href="/">Home</NavItem>
+          <NavItem href="/playlist">Music</NavItem>
+          <NavItem href="/videos">Videos</NavItem>
+          <NavItem href="/artshow">Art Show</NavItem>
+          <NavItem href="/about">About</NavItem>
+          <NavItem href="/contact/">Contact</NavItem>
+          <NavItem>
+            <UserMenu session={this.props.session} toggleModal={this.toggleModal} signinBtn={this.props.signinBtn} />
+          </NavItem>
         </Navbar>
-      </div>
+        <style jsx>
+          {`
+            .my-navbar {
+              color: #fff;
+              background-color: rgba(76, 38, 140, 1);
+            }
+          `}
+        </style>
+      </header>
     )
   }
 }
@@ -147,7 +100,7 @@ export class UserMenu extends React.Component {
       // If signed in display user dropdown menu
       const session = this.props.session
       return (
-        <Nav className="ml-auto" navbar>
+        <Navbar className="ml-auto" navbar>
           {/*<!-- Uses .nojs-dropdown CSS to for a dropdown that works without client side JavaScript ->*/}
           <div tabIndex="2" className="dropdown nojs-dropdown">
             <div className="nav-item">
@@ -185,7 +138,7 @@ export class UserMenu extends React.Component {
               </div>
             </div>
           </div>
-        </Nav>
+        </Navbar>
       )
     }
     if (this.props.signinBtn === false) {
@@ -194,18 +147,11 @@ export class UserMenu extends React.Component {
     } else {
       // If not signed in, display sign in button
       return (
-        <Nav className="ml-auto" navbar>
-          <NavItem>
-            {/**
-             * @TODO Add support for passing current URL path as redirect URL
-             * so that users without JavaScript are also redirected to the page
-             * they were on before they signed in.
-             **/}
-            <a href="/auth?redirect=/" className="btn btn-outline-primary" onClick={this.props.toggleModal}>
-              <span className="icon ion-md-log-in mr-1" /> Sign up / Sign in
-            </a>
+        <Navbar className="ml-auto">
+          <NavItem href="/auth?redirect=/" className="btn btn-outline-primary" onClick={this.props.toggleModal}>
+            <span className="icon ion-md-log-in mr-1" /> Sign up / Sign in
           </NavItem>
-        </Nav>
+        </Navbar>
       )
     }
   }
@@ -216,10 +162,8 @@ export class AdminMenuItem extends React.Component {
     if (this.props.session.user && this.props.session.user.admin === true) {
       return (
         <React.Fragment>
-          <Link prefetch href="/admin">
-            <a href="/admin" className="dropdown-item">
-              <span className="icon ion-md-settings mr-1" /> Admin
-            </a>
+          <Link prefetch href="/admin" className="dropdown-item">
+            <span className="icon ion-md-settings mr-1" /> Admin
           </Link>
         </React.Fragment>
       )

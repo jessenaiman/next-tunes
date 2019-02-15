@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { Container, Row, Col, Button, Jumbotron, ListGroup, ListGroupItem } from 'reactstrap'
+import { Container, Row, Col, Jumbotron } from 'reactstrap'
 import { Card, CardTitle } from 'react-materialize'
 import Layout from '../components/layout'
 import Featured from '../components/featured'
@@ -33,8 +33,7 @@ export default () => (
               <Link href="#">
                 <a>This is a Link</a>
               </Link>
-            ]}
-          >
+            ]}>
             We want to see what makes you smile, sing, and laugh. This site could do with many splashes of colour.
             Please share your art, and we will put it in our gallery, on instagram (work in progress), and anywhere we
             can fit on our site.
@@ -48,8 +47,7 @@ export default () => (
               <Link href="#">
                 <a>This is a Link</a>
               </Link>
-            ]}
-          >
+            ]}>
             Please subscribe to our YouTube channel. Follow us on twitter, and facebook. Tell your friends about us,
             tell everybody...go tell it on a mountain.
           </Card>

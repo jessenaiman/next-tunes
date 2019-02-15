@@ -1,5 +1,5 @@
-import Page from '../../components/page'
-import Layout from '../../components/layout'
+import Page from '../components/page'
+import Layout from '../components/layout'
 
 export default class extends Page {
   render() {
@@ -16,8 +16,7 @@ export default class extends Page {
               <a
                 className="btn btn-primary mx-2"
                 href="https://open.spotify.com/user/jessenaiman/playlist/7tjgNTSkk8MfhUJEqLBRFU?si=o_6R8KzfSuWNRFcmjc6w9A"
-                target="_blank"
-              >
+                target="_blank">
                 Listen
               </a>
             </p>
@@ -37,8 +36,7 @@ export default class extends Page {
                     preserveAspectRatio="xMidYMid slice"
                     focusable="false"
                     role="img"
-                    aria-label="Placeholder: Thumbnail"
-                  >
+                    aria-label="Placeholder: Thumbnail">
                     <title>Placeholder</title>
                     <rect fill="#55595c" width="100%" height="100%" />
                     <text fill="#eceeef" dy=".3em" x="50%" y="50%">
@@ -54,15 +52,13 @@ export default class extends Page {
                       <a
                         className="card-link"
                         href="https://open.spotify.com/user/jessenaiman/playlist/7zmGexvF68LLhvPdBlM26r?si=U7mQXPEdRRS3otvGm-7Pzw"
-                        target="_blank"
-                      >
+                        target="_blank">
                         Spotify
                       </a>
                       <a
                         className="card-link"
                         href="https://www.youtube.com/playlist?list=PLg9e8HzshxGTcppVLhrPGVuGWgPFJxDRg"
-                        target="_blank"
-                      >
+                        target="_blank">
                         YouTube
                       </a>
                     </div>
@@ -79,8 +75,7 @@ export default class extends Page {
                     preserveAspectRatio="xMidYMid slice"
                     focusable="false"
                     role="img"
-                    aria-label="Placeholder: Thumbnail"
-                  >
+                    aria-label="Placeholder: Thumbnail">
                     <title>Placeholder</title>
                     <rect fill="#55595c" width="100%" height="100%" />
                     <text fill="#eceeef" dy=".3em" x="50%" y="50%">
@@ -96,15 +91,13 @@ export default class extends Page {
                       <a
                         className="card-link"
                         href="https://open.spotify.com/user/jessenaiman/playlist/48DNZbQzuvMsl4QrsDfnrh?si=Hud7FiZNQ8KydvjQC64FPw"
-                        target="_blank"
-                      >
+                        target="_blank">
                         Spotify
                       </a>
                       <a
                         className="card-link"
                         href="https://www.youtube.com/playlist?list=PLg9e8HzshxGSIP25HcrnU6k8YaoDa_6v2"
-                        target="_blank"
-                      >
+                        target="_blank">
                         YouTube
                       </a>
                     </div>
@@ -121,8 +114,7 @@ export default class extends Page {
                     preserveAspectRatio="xMidYMid slice"
                     focusable="false"
                     role="img"
-                    aria-label="Placeholder: Thumbnail"
-                  >
+                    aria-label="Placeholder: Thumbnail">
                     <title>Placeholder</title>
                     <rect fill="#55595c" width="100%" height="100%" />
                     <text fill="#eceeef" dy=".3em" x="50%" y="50%">
@@ -138,15 +130,13 @@ export default class extends Page {
                       <a
                         className="card-link"
                         href="https://open.spotify.com/user/jessenaiman/playlist/7tjgNTSkk8MfhUJEqLBRFU?si=edQnNzirS3emZvgAg5I83g"
-                        target="_blank"
-                      >
+                        target="_blank">
                         Spotify
                       </a>
                       <a
                         className="card-link"
                         href="https://www.youtube.com/playlist?list=PLg9e8HzshxGTZXKWApQ1LLC8oF11OGT5e"
-                        target="_blank"
-                      >
+                        target="_blank">
                         YouTube
                       </a>
                     </div>

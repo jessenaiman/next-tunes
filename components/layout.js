@@ -2,37 +2,15 @@ import React from 'react'
 import Router from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
-import {
-  Container,
-  Row,
-  Col,
-  Nav,
-  NavItem,
-  Button,
-  Form,
-  NavLink,
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  ListGroup,
-  ListGroupItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from 'reactstrap'
+import { Container, Row, Col, Nav, NavItem, Form, Modal, ModalHeader, ModalBody } from 'reactstrap'
+import { Button } from 'react-materialize'
 import Signin from './signin'
 import { NextAuth } from 'next-auth/client'
 import Cookies from 'universal-cookie'
 import Package from '../package'
 import Styles from '../css/index.scss'
 import HeaderNav from './header'
-import Footer from './footer'
+import Footer from './my-footer'
 
 export default class extends React.Component {
   static propTypes() {
@@ -86,12 +64,14 @@ export default class extends React.Component {
             rel="stylesheet"
           />
         </Head>
-        <HeaderNav />
-        <MainBody navmenu={this.props.navmenu} fluid={this.props.fluid} container={this.props.container}>
-          {this.props.children}
-          <script src="https://code.jquery.com/jquery-2.1.1.min.js" />
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js" />
-        </MainBody>
+        <main>
+          <HeaderNav />
+          <MainBody navmenu={this.props.navmenu} fluid={this.props.fluid} container={this.props.container}>
+            {this.props.children}
+            <script src="https://code.jquery.com/jquery-2.1.1.min.js" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js" />
+          </MainBody>
+        </main>
         <Footer />
         <SigninModal
           modal={this.state.modal}
