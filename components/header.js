@@ -1,6 +1,5 @@
 import React from 'react'
 import Router from 'next/router'
-import Head from 'next/head'
 import Link from 'next/link'
 import {
   Container,
@@ -29,12 +28,25 @@ import {
 import Signin from './signin'
 import { NextAuth } from 'next-auth/client'
 import Cookies from 'universal-cookie'
-import Package from '../package'
-import Styles from '../css/index.scss'
-import HeaderNav from './header'
-import Footer from './footer'
 
-export default class extends React.Component {
+export default class HeaderNav extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.toggle = this.toggle.bind(this)
+    this.state = {
+      isOpen: false,
+      navOpen: false,
+      modal: false,
+      providers: null
+    }
+    this.toggleModal = this.toggleModal.bind(this)
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
   static propTypes() {
     return {
       session: React.PropTypes.object.isRequired,
@@ -44,16 +56,6 @@ export default class extends React.Component {
       navmenu: React.PropTypes.boolean,
       signinBtn: React.PropTypes.boolean
     }
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      navOpen: false,
-      modal: false,
-      providers: null
-    }
-    this.toggleModal = this.toggleModal.bind(this)
   }
 
   async toggleModal(e) {
@@ -73,78 +75,53 @@ export default class extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <Head>
-          <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>{this.props.title || 'Tickles and Tunes'}</title>
-          <style dangerouslySetInnerHTML={{ __html: Styles }} />
-          <script src="https://cdn.polyfill.io/v2/polyfill.min.js" />
-          <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-          <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"
-            rel="stylesheet"
-          />
-        </Head>
-        <HeaderNav />
-        <MainBody navmenu={this.props.navmenu} fluid={this.props.fluid} container={this.props.container}>
-          {this.props.children}
-          <script src="https://code.jquery.com/jquery-2.1.1.min.js" />
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js" />
-        </MainBody>
-        <Footer />
-        <SigninModal
-          modal={this.state.modal}
-          toggleModal={this.toggleModal}
-          session={this.props.session}
-          providers={this.state.providers}
-        />
-        <style jsx>
-          {`
-            @media (min-width: 40em) {
-              /* Bump up size of carousel content */
-              .carousel-caption p {
-                margin-bottom: 1.25rem;
-                font-size: 1.25rem;
-                line-height: 1.4;
-              }
-
-              .featurette-heading {
-                font-size: 50px;
-              }
-            }
-
-            @media (min-width: 62em) {
-              .featurette-heading {
-                margin-top: 7rem;
-              }
-            }
-          `}
-        </style>
-      </React.Fragment>
+      <div>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">Tickles and Tunes</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav navbar>
+              <NavItem>
+                <NavLink href="/">Home</NavLink>
+              </NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Music
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    <Link href="/music/playlist">Playlists</Link>
+                  </DropdownItem>
+                  <DropdownItem>Option 2</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>Reset</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Vidoes
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    <Link href="/videos/">Playlists</Link>
+                  </DropdownItem>
+                  <DropdownItem>Option 2</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>Reset</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+              <NavItem>
+                <NavLink href="/about">About</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/contact/">Contact</NavLink>
+              </NavItem>
+              <UserMenu session={this.props.session} toggleModal={this.toggleModal} signinBtn={this.props.signinBtn} />
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
     )
-  }
-}
-
-export class MainBody extends React.Component {
-  render() {
-    if (this.props.container === false) {
-      return <React.Fragment>{this.props.children}</React.Fragment>
-    } else if (this.props.navmenu === false) {
-      console.log('this one')
-      return (
-        <Container fluid={this.props.fluid} style={{ marginTop: '1em' }}>
-          {this.props.children}
-        </Container>
-      )
-    } else {
-      console.log('returned row')
-      return (
-        <Container fluid={this.props.fluid} style={{ marginTop: '1em' }}>
-          {this.props.children}
-        </Container>
-      )
-    }
   }
 }
 

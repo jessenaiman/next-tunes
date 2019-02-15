@@ -66,6 +66,18 @@ nextApp
     // and server side, name it ':id'
     return nextApp.render(req, res, '/examples/routing', req.params)
   })
+
+  expressApp.get('music/:id', (req, res) => {
+    return nextApp.render(req, res, '/music/playlist', req.params)
+  })
+
+  expressApp.get('videos/:id', (req, res) => {
+    return nextApp.render(req, res, '/videos/index', req.params)
+  })
+
+  expressApp.get('about', (req, res) => {
+    return nextApp.render(req, res, '/about', req.params)
+  })
   
   // Default catch-all handler to allow Next.js to handle all other routes
   expressApp.all('*', (req, res) => {
