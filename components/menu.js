@@ -1,66 +1,39 @@
-import React from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+/* eslint-disable no-script-url */
+import React from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import Link from '@material-ui/core/Link'
+import Typography from '@material-ui/core/Typography'
 
-export default class Example extends React.Component {
-  constructor(props) {
-    super(props);
+const styles = theme => ({
+  link: {
+    margin: theme.spacing.unit
+  }
+})
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
-  render() {
-    return (
-      <div>
-        <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">reactstrap</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
-    );
-  }
+// This resolves to nothing and doesn't affect browser history
+const dudUrl = 'javascript:;'
+
+function Links(props) {
+  const { classes } = props
+
+  return (
+    <Typography>
+      <Link href={dudUrl} className={classes.link}>
+        Link
+      </Link>
+      <Link href={dudUrl} color="inherit" className={classes.link}>
+        {'color="inherit"'}
+      </Link>
+      <Link href={dudUrl} variant="body1" className={classes.link}>
+        {'variant="body1"'}
+      </Link>
+    </Typography>
+  )
 }
+
+Links.propTypes = {
+  classes: PropTypes.object.isRequired
+}
+
+export default withStyles(styles)(Links)

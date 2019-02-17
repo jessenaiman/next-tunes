@@ -1,39 +1,33 @@
 import Link from 'next/link'
 import { Follow } from 'react-twitter-widgets'
-import { Footer } from 'react-materialize'
 
 const MyFooter = () => (
-  <Footer
-    copyrights="© 2019 Tickles and Tunes"
-    moreLinks={
-      <div className="grey-text text-lighten-4 right">
-        <Follow username="ticklesandtunes" />
-      </div>
-    }
-    links={
-      <ul className="footer-links">
-        <li>
-          <div className="grey-text text-lighten-3">
-            <Follow username="cathyandmarcy" />
-          </div>
+  <footer>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <p class="float-left">© 2019 Tickles and Tunes</p>
+      <ul class="float-right list-inline">
+        <li class="list-inline-item">
+          <script src="https://apis.google.com/js/platform.js" />
+          <div
+            class="g-ytsubscribe"
+            data-channelid="UC_THbKUe6o-K64vh7gWCPyQ"
+            data-layout="default"
+            data-count="default"
+          />
         </li>
-        <li>
-          <a className="grey-text text-lighten-3" href="#!">
-            <Follow username="kathyreidnaiman" />
+        <li class="list-inline-item">
+          <a
+            class="twitter-follow-button"
+            href="https://twitter.com/TicklesAndTunes?ref_src=twsrc%5Etfw"
+            data-show-count="false">
+            {' '}
+            @TicklesAndTunes
+            <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8" />
           </a>
         </li>
       </ul>
-    }
-    className="example">
-    <h5 className="white-text">Support independent musicians and artists</h5>
-    <style jsx>
-      {`
-        .footer-links {
-          margin-top: 15px;
-        }
-      `}
-    </style>
-  </Footer>
+    </nav>
+  </footer>
 )
 
 export default MyFooter

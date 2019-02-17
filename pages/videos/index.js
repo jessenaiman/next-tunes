@@ -30,8 +30,7 @@ export default class extends Page {
                       preserveAspectRatio="xMidYMid slice"
                       focusable="false"
                       role="img"
-                      aria-label="Placeholder: Thumbnail"
-                    >
+                      aria-label="Placeholder: Thumbnail">
                       <title>Placeholder</title>
                       <rect fill="#55595c" width="100%" height="100%" />
                       <text fill="#eceeef" dy=".3em" x="50%" y="50%">
@@ -41,7 +40,7 @@ export default class extends Page {
                     <div className="card-body">
                       <h5 className="card-title">Fingerplays</h5>
                       <p className="card-text">Watch Kathy Reid-Naiman teach us about fingerplays</p>
-                      <a className="btn btn-secondary" href="/fingerplays" role="button">
+                      <a className="btn btn-secondary" href="#" role="button">
                         Watch
                       </a>
                     </div>
@@ -57,8 +56,7 @@ export default class extends Page {
                       preserveAspectRatio="xMidYMid slice"
                       focusable="false"
                       role="img"
-                      aria-label="Placeholder: Thumbnail"
-                    >
+                      aria-label="Placeholder: Thumbnail">
                       <title>Placeholder</title>
                       <rect fill="#55595c" width="100%" height="100%" />
                       <text fill="#eceeef" dy=".3em" x="50%" y="50%">
@@ -86,8 +84,7 @@ export default class extends Page {
                       preserveAspectRatio="xMidYMid slice"
                       focusable="false"
                       role="img"
-                      aria-label="Placeholder: Thumbnail"
-                    >
+                      aria-label="Placeholder: Thumbnail">
                       <title>Placeholder</title>
                       <rect fill="#55595c" width="100%" height="100%" />
                       <text fill="#eceeef" dy=".3em" x="50%" y="50%">

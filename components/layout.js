@@ -2,15 +2,17 @@ import React from 'react'
 import Router from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
-import { Container, Row, Col, Nav, NavItem, Form, Modal, ModalHeader, ModalBody } from 'reactstrap'
-import { Button } from 'react-materialize'
+import { Container, Row, Col, Button, Nav, NavItem, Form, Modal, ModalBody } from 'react-bootstrap'
 import Signin from './signin'
 import { NextAuth } from 'next-auth/client'
 import Cookies from 'universal-cookie'
 import Package from '../package'
 import Styles from '../css/index.scss'
 import HeaderNav from './header'
+import Menu from './menu'
+import Superbar from './superbar'
 import Footer from './my-footer'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 export default class extends React.Component {
   static propTypes() {
@@ -59,17 +61,13 @@ export default class extends React.Component {
           <style dangerouslySetInnerHTML={{ __html: Styles }} />
           <script src="https://cdn.polyfill.io/v2/polyfill.min.js" />
           <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-          <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css"
-            rel="stylesheet"
-          />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
         </Head>
         <main>
-          <HeaderNav />
+          <CssBaseline />
+          <Superbar />
           <MainBody navmenu={this.props.navmenu} fluid={this.props.fluid} container={this.props.container}>
             {this.props.children}
-            <script src="https://code.jquery.com/jquery-2.1.1.min.js" />
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js" />
           </MainBody>
         </main>
         <Footer />
@@ -238,10 +236,10 @@ export class SigninModal extends React.Component {
 
     return (
       <Modal isOpen={this.props.modal} toggle={this.props.toggleModal} style={{ maxWidth: 700 }}>
-        <ModalHeader>Sign up / Sign in</ModalHeader>
-        <ModalBody style={{ padding: '1em 2em' }}>
+        <Modal.Header>Sign up / Sign in</Modal.Header>
+        <Modal.Body style={{ padding: '1em 2em' }}>
           <Signin session={this.props.session} providers={this.props.providers} />
-        </ModalBody>
+        </Modal.Body>
       </Modal>
     )
   }
