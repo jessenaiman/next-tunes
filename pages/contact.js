@@ -18,7 +18,7 @@ export default () => (
             Please tell us your idea or suggestion
           </label>
           <div class="col-md-8">
-            <textarea class="form-control" name="message" id="message" rows="7" autofocus="true" />
+            <textarea class="form-control" name="message" id="message" rows="7" autoFocus="true" />
           </div>
         </div>
         <div class="form-group">

@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 export default class extends Page {
   render() {
     return (
-      <Layout {...this.props}>
+      <Layout>
         <section className="jumbotron text-center">
           <div className="container">
             <h1 className="jumbotron-heading">Sing along with the Kids Monthly Playlist</h1>

@@ -1,39 +1,20 @@
-/* eslint-disable no-script-url */
-import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
-import Link from '@material-ui/core/Link'
-import Typography from '@material-ui/core/Typography'
+import Link from 'next/link'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
 
-const styles = theme => ({
-  link: {
-    margin: theme.spacing.unit
-  }
-})
+const Menu = () => (
+  <Navbar bg="light" expand="lg">
+    <Navbar.Brand href="/">Tickles and Tunes</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="mr-auto">
+        <Nav.Link href="/music">Music</Nav.Link>
+        <Nav.Link href="/videos">Videos</Nav.Link>
+        <Nav.Link href="/videos">ArtShow</Nav.Link>
+        <Nav.Link href="/videos">Marketing</Nav.Link>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
+)
 
-// This resolves to nothing and doesn't affect browser history
-const dudUrl = 'javascript:;'
-
-function Links(props) {
-  const { classes } = props
-
-  return (
-    <Typography>
-      <Link href={dudUrl} className={classes.link}>
-        Link
-      </Link>
-      <Link href={dudUrl} color="inherit" className={classes.link}>
-        {'color="inherit"'}
-      </Link>
-      <Link href={dudUrl} variant="body1" className={classes.link}>
-        {'variant="body1"'}
-      </Link>
-    </Typography>
-  )
-}
-
-Links.propTypes = {
-  classes: PropTypes.object.isRequired
-}
-
-export default withStyles(styles)(Links)
+export default Menu
