@@ -1,5 +1,4 @@
 const express = require('express')
-const SheetsRegistry = require('jss')
 const next = require('next')
 
 const dev = process.env.NODE_ENV !== 'production'
@@ -11,21 +10,9 @@ app
   .then(() => {
     const server = express()
 
-    // We are going to fill these out in the sections to follow.
-    function renderFullPage(html, css) {
-      /* ... */
-    }
-
-    function handleRender(req, res) {
-      /* ... */
-    }
-
-    // This is fired every time the server-side receives a request.
-    server.use(handleRender)
-
     server.get('/p/:id', (req, res) => {
       const actualPage = '/post'
-      const queryParams = { id: req.params.id }
+      const queryParams = { title: req.params.id }
       app.render(req, res, actualPage, queryParams)
     })
 

@@ -114,10 +114,10 @@ function Pricing(props) {
       <AppBar position="static" color="default" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-            Company name
+            Tickles and Tunes
           </Typography>
-          <Button>Features</Button>
-          <Button>Enterprise</Button>
+          <Button href="/music">Music</Button>
+          <Button>Videos</Button>
           <Button>Support</Button>
           <Button color="primary" variant="outlined">
             Login

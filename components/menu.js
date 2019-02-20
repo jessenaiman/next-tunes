@@ -10,7 +10,7 @@ const Menu = () => (
       <Nav className="mr-auto">
         <Nav.Link href="/music">Music</Nav.Link>
         <Nav.Link href="/videos">Videos</Nav.Link>
-        <Nav.Link href="/videos">ArtShow</Nav.Link>
+        <Nav.Link href="/artshow">ArtShow</Nav.Link>
         <Nav.Link href="/videos">Marketing</Nav.Link>
       </Nav>
     </Navbar.Collapse>
